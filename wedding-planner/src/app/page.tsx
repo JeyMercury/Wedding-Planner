@@ -10,7 +10,7 @@ export default function Home() {
       {/* Hero */}
       <section className="relative h-screen flex items-center justify-center bg-gray-100">
         <Image
-          src="/images/title_photo.jpg" 
+          src="/images/dolomitas_tres_picos.jpg" 
           alt="Foto de título"
           fill
           priority
@@ -54,6 +54,16 @@ export default function Home() {
           </div>
           {/* Puedes añadir más cards: transporte, alojamiento, mapa, etc. */}
         </div>
+        <div className="flex justify-center mt-8">
+          <Image
+            src="/images/fuerteventura_playa_palomitas.jpg" 
+            alt="Foto de título"
+            width={768}
+            height={100}
+            priority
+            className="object-cover h-80"
+          />
+        </div>
       </section>
 
       {/* RSVP */}
@@ -61,7 +71,7 @@ export default function Home() {
         <h2 className="text-3xl font-serif text-lime-800 mb-8 text-center">
           Confirma tu asistencia
         </h2>
-        <div className="max-w-xl mx-auto bg-white p-8 rounded-2xl shadow">
+        <div className="max-w-xl mx-auto">
           <RsvpForm />
         </div>
       </section>
