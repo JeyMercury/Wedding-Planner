@@ -14,7 +14,7 @@ export default function Home() {
           alt="Foto de título"
           fill
           priority
-          className="object-cover"
+          className="object-cover object-[50%_30%] md:object-center"
         />
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-center px-4">
