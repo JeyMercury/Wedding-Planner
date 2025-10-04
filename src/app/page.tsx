@@ -8,13 +8,14 @@ export default function Home() {
   return (
     <main className="bg-white text-gray-800">
       {/* Hero */}
-      <section className="relative h-screen flex items-center justify-center bg-gray-100">
+      <section className="relative h-dvh flex items-center justify-center bg-gray-100">
         <Image
           src="/images/dolomitas_tres_picos.jpg" 
           alt="Foto de título"
           fill
           priority
-          className="object-cover object-[70%_center] md:object-center"
+          sizes="100vw"
+          className="object-cover object-[60%_center] md:object-center"
         />
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-center px-4">
