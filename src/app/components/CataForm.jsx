@@ -37,26 +37,56 @@ export default function RsvpForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-2xl shadow-lg border border-lime-100">
 
-        {/* Cata */}
-        <div className="flex justify-center">
-            <label htmlFor="transporte" className="block text-sm font-medium text-gray-700 mb-4 text-center">
-                <p>¿Te gustaría asistir a una cata maridaje con cerveza durante el cóctel? 🍺</p>
-                <p>(3 cervezas con aperitivo, unos 30 minutos de duración)</p>
-            </label>
-        </div>
-        <div className="flex items-center">
+      {/* Cata */}
+      <div className="flex justify-center">
+        <label htmlFor="cata" className="block text-sm font-medium text-gray-700 mb-4 text-center">
+          <p>¿Te gustaría asistir a una cata maridaje con cerveza durante el cóctel? 🍺</p>
+          <p>(3 cervezas con aperitivo, unos 30 minutos de duración)</p>
+        </label>
+      </div>
+
+      <div className="text-center item">
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          ¿Asistirás a la cata de cervezas?
+        </label>
+        <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <label className="flex items-center gap-2 text-sm text-gray-700">
             <input
-            id="cata"
-            name="cata"
-            type="checkbox"
-            checked={form.cata}
-            onChange={handleChange}
-            className="h-4 w-4 text-lime-600 border-gray-300 rounded focus:ring-lime-400"
+              type="radio"
+              name="cata"
+              value="sí"
+              checked={form.cata === "sí"}
+              onChange={handleChange}
+              className="h-4 w-4 text-lime-500 border-gray-300 focus:ring-lime-400"
             />
-            <label htmlFor="cata" className="ml-2 text-sm text-gray-700">
-            ¿Asistirás a la cata de cervezas?
-            </label>
+            Sí
+          </label>
+
+          <label className="flex items-center gap-2 text-sm text-gray-700">
+            <input
+              type="radio"
+              name="cata"
+              value="sí-00"
+              checked={form.cata === "sí-00"}
+              onChange={handleChange}
+              className="h-4 w-4 text-lime-500 border-gray-300 focus:ring-lime-400"
+            />
+            Sí, pero 0,0%
+          </label>
+
+          <label className="flex items-center gap-2 text-sm text-gray-700">
+            <input
+              type="radio"
+              name="cata"
+              value="no"
+              checked={form.cata === "no"}
+              onChange={handleChange}
+              className="h-4 w-4 text-lime-500 border-gray-300 focus:ring-lime-400"
+            />
+            No
+          </label>
         </div>
+      </div>
 
       {/* Botón */}
       <div className="pt-4">
@@ -68,5 +98,6 @@ export default function RsvpForm() {
         </button>
       </div>
     </form>
+
   )
 }

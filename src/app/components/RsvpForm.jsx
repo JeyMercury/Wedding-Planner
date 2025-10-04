@@ -8,20 +8,30 @@ export default function RsvpForm() {
     plusOne: false,
     cata: false,
     alergias: "",
-    menu: "",
+    menu: [],
+    carneopescado: "",
     transporte: "",
-    alojamiento: false,
-    talla: "",
     comentarios: ""
   })
 
-  const handleChange = e => {
-    const { name, value, type, checked } = e.target
-    setForm({
-      ...form,
-      [name]: type === "checkbox" ? checked : value
-    })
-  }
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+
+    if (type === "checkbox") {
+      setForm((prev) => {
+        if (checked) {
+          return { ...prev, [name]: [...prev[name], value] };
+        } else {
+          return { ...prev, [name]: prev[name].filter((v) => v !== value) };
+        }
+      });
+    } else {
+      setForm((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
+  };
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -35,10 +45,10 @@ export default function RsvpForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-2xl shadow-lg border border-lime-100">
+    <form onSubmit={handleSubmit} className="space-y-8 bg-white p-8 rounded-2xl shadow-lg border border-lime-100">
       {/* Nombre */}
       <div>
-        <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="nombre" className="block font-medium text-gray-700 mb-2">
           Tu nombre
         </label>
         <input
@@ -49,17 +59,17 @@ export default function RsvpForm() {
           value={form.nombre}
           onChange={handleChange}
           required
-          className="w-full rounded-lg border border-gray-300 focus:ring-2 focus:ring-lime-400 focus:border-lime-400 shadow-sm"
+          className="w-full p-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-lime-400 focus:border-lime-400 shadow-sm"
         />
       </div>
 
       {/* Asistencia */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="block font-medium text-gray-700 mb-2">
           ¿Asistirás?
         </label>
         <div className="flex gap-6">
-          <label className="flex items-center gap-2">
+          <label className="flex items-center gap-2 text-sm text-gray-700">
             <input
               type="checkbox"
               checked={form.asistencia === "sí"}
@@ -70,7 +80,7 @@ export default function RsvpForm() {
             />
             Sí
           </label>
-          <label className="flex items-center gap-2">
+          <label className="flex items-center gap-2 text-sm text-gray-700">
             <input
               type="checkbox"
               checked={form.asistencia === "no"}
@@ -83,13 +93,14 @@ export default function RsvpForm() {
           </label>
         </div>
       </div>
+
       {/* Acompañante */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="block font-medium text-gray-700 mb-2">
           ¿Traerás acompañante?
         </label>
         <div className="flex gap-6">
-          <label className="flex items-center gap-2">
+          <label className="flex items-center gap-2 text-sm text-gray-700">
             <input
               type="checkbox"
               checked={form.acompañante === "sí"}
@@ -100,7 +111,7 @@ export default function RsvpForm() {
             />
             Sí
           </label>
-          <label className="flex items-center gap-2">
+          <label className="flex items-center gap-2 text-sm text-gray-700">
             <input
               type="checkbox"
               checked={form.acompañante === "no"}
@@ -113,10 +124,24 @@ export default function RsvpForm() {
           </label>
         </div>
       </div>
+      <div>
+        <label htmlFor="nombre_acompañante" className="block font-medium text-gray-700 mb-2">
+          Nombre del acompañante
+        </label>
+        <input
+          id="nombre_acompañante"
+          name="nombre_acompañante"
+          type="text"
+          placeholder="Ej: Juan García"
+          value={form.nombre_acompañante}
+          onChange={handleChange}
+          className="w-full p-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-lime-400 focus:border-lime-400 shadow-sm"
+        />
+      </div>
 
       {/* Alergias / intolerancias */}
       <div>
-        <label htmlFor="alergias" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="alergias" className="block font-medium text-gray-700 mb-2">
           ¿Tienes alergias o intolerancias?
         </label>
         <input
@@ -126,46 +151,85 @@ export default function RsvpForm() {
           placeholder="Por ejemplo: gluten, frutos secos..."
           value={form.alergias}
           onChange={handleChange}
-          className="w-full rounded-lg border border-gray-300 focus:ring-2 focus:ring-lime-400 focus:border-lime-400 shadow-sm"
+          className="w-full p-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-lime-400 focus:border-lime-400 shadow-sm"
         />
       </div>
 
       {/* Menú */}
       <div>
-        <label htmlFor="menu" className="block text-sm font-medium text-gray-700 mb-1">
+        <p className="block font-medium text-gray-700 mb-2">
           Preferencia de menú
-        </label>
-        <select
-          id="menu"
-          name="menu"
-          value={form.menu}
-          onChange={handleChange}
-          className="w-full rounded-lg border border-gray-300 focus:ring-2 focus:ring-lime-400 focus:border-lime-400 shadow-sm"
-        >
-          <option value="">-- selecciona --</option>
-          <option value="normal">Normal</option>
-          <option value="vegetariano">Vegetariano</option>
-          <option value="vegano">Vegano</option>
-          <option value="sin gluten">Sin gluten / libre de alérgenos</option>
-        </select>
+        </p>
+        <div className="flex gap-6 text-sm text-gray-700">
+          {["Normal", "Vegetariano", "Vegano", "Sin gluten", "Embarazo"].map((opcion) => (
+            <label key={opcion} className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                name="menu"
+                value={opcion.toLowerCase()}
+                checked={form.menu.includes(opcion.toLowerCase())}
+                onChange={handleChange}
+                className="h-4 w-4 rounded border-gray-300 text-lime-500 focus:ring-lime-400"
+                required
+              />
+              <span>{opcion}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      {/* Carne o Pescado */}
+      <div>
+        <p className="block font-medium text-gray-700 mb-2">
+          Carne o Pescado
+        </p>
+        <div className="flex gap-6 space-y-2 text-sm text-gray-700">
+          {["Carne", "Pescado", "Otro (Vegano, vegetariano...)"].map((opcion) => (
+            <label key={opcion} className="flex items-center space-x-2">
+              <input
+                type="radio"
+                name="carneopescado"
+                value={opcion.toLowerCase()}
+                checked={form.carneopescado === opcion.toLowerCase()}
+                onChange={handleChange}
+                className="h-4 w-4 border-gray-300 text-lime-500 focus:ring-lime-400"
+              />
+              <span>{opcion}</span>
+            </label>
+          ))}
+        </div>
       </div>
 
       {/* Transporte */}
       <div>
-        <label htmlFor="transporte" className="block text-sm font-medium text-gray-700 mb-1">
-          ¿Necesitas transporte / indicaciones?
-        </label>
-        <select
-          id="transporte"
-          name="transporte"
-          value={form.transporte}
-          onChange={handleChange}
-          className="w-full rounded-lg border border-gray-300 focus:ring-2 focus:ring-lime-400 focus:border-lime-400 shadow-sm"
-        >
-          <option value="">-- selecciona --</option>
-          <option value="no">No, iré por mi cuenta</option>
-          <option value="sí">Sí, agradecería transporte / indicaciones</option>
-        </select>
+        <p className="block font-medium text-gray-700 mb-2">
+          Transporte en autobús 🚌
+        </p>
+        <p className="block text-sm font-medium text-gray-700 mb-1">
+          ¡Queremos organizar el transporte para que llegar a la boda sea fácil para todos!
+        </p>
+        <p className="block text-sm font-medium text-gray-700 mb-1">
+          Habrá opción desde Fuenlabrada y Madrid. Por favor, indícanos si te gustaría desplazarte en autobús:
+        </p>
+        <div className="space-y-2 text-sm text-gray-700">
+          {[
+            { label: "Sí, agradecería transporte (Fuenlabrada)", value: "fuenlabrada" },
+            { label: "Sí, agradecería transporte (Madrid)", value: "madrid" },
+            { label: "No, iré por mi cuenta", value: "no" },
+          ].map(({ label, value }) => (
+            <label key={value} className="flex items-center space-x-2">
+              <input
+                type="radio"
+                name="transporte"
+                value={value}
+                checked={form.transporte === value}
+                onChange={handleChange}
+                className="h-4 w-4 border-gray-300 text-lime-500 focus:ring-lime-400"
+              />
+              <span>{label}</span>
+            </label>
+          ))}
+        </div>
       </div>
 
       {/* Comentarios */}
@@ -180,7 +244,7 @@ export default function RsvpForm() {
           placeholder="¿Algo que nos quieras decir?"
           value={form.comentarios}
           onChange={handleChange}
-          className="w-full rounded-lg border border-gray-300 focus:ring-2 focus:ring-lime-400 focus:border-lime-400 shadow-sm"
+          className="w-full p-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-lime-400 focus:border-lime-400 shadow-sm"
         />
       </div>
 
