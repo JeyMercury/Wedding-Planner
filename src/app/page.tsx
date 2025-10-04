@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import RsvpForm from "./components/RsvpForm"
-import CataForm from "./components/CataForm"
+// import CataForm from "./components/CataForm"
 
 export default function Home() {
   return (
@@ -99,15 +99,14 @@ export default function Home() {
       </section>
 
       {/* Preguntas / encuesta */}
-      <section className="py-16 px-6 bg-gray-50">
+      {/* <section className="py-16 px-6 bg-gray-50">
         <h2 className="text-3xl font-serif text-lime-800 mb-6 text-center">
           Asistencia a Cata de Cerveza
         </h2>
         <div className="max-w-xl mx-auto ">
           <CataForm />
         </div>
-        {/* Aquí podrías insertar otro formulario o campos extra debajo del RSVP o por separado */}
-      </section>
+      </section> */}
 
       {/* Pie / contacto */}
       <footer className="py-12 bg-white border-t">

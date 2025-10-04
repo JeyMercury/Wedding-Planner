@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image"
 import { useState } from "react"
 
 export default function RsvpForm() {
@@ -248,6 +249,71 @@ export default function RsvpForm() {
           onChange={handleChange}
           className="w-full p-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-lime-400 focus:border-lime-400 shadow-sm"
         />
+      </div>
+
+      {/* Cata */}
+      <div>
+        <h2 className="text-3xl font-serif text-lime-800 mb-6 text-center">
+          Asistencia a Cata de Cerveza
+        </h2>
+        <Image
+          src="/images/juanjo_beer_square.jpg" 
+          alt="Foto de título"
+          width={250}
+          height={175}
+          priority
+          sizes="100vw"
+          className="object-cover object-[70%_center] md:object-center mb-4"
+        />
+        <div className="flex justify-center">
+          <label htmlFor="cata" className="block text-sm font-medium text-gray-700 mb-4 text-center">
+            <p>¿Te gustaría asistir a una cata maridaje con cerveza durante el cóctel? 🍺</p>
+            <p>(3 cervezas con aperitivo, unos 30 minutos de duración)</p>
+          </label>
+        </div>
+
+        <div className="text-center item">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            ¿Asistirás a la cata de cervezas?
+          </label>
+          <div className="flex flex-col sm:flex-row gap-6 items-center justify-center">
+            <label className="flex items-center gap-2 text-sm text-gray-700">
+              <input
+                type="radio"
+                name="cata"
+                value="sí"
+                checked={form.cata === "sí"}
+                onChange={handleChange}
+                className="h-4 w-4 text-lime-500 border-gray-300 focus:ring-lime-400"
+              />
+              Sí
+            </label>
+
+            <label className="flex items-center gap-2 text-sm text-gray-700">
+              <input
+                type="radio"
+                name="cata"
+                value="sí-00"
+                checked={form.cata === "sí-00"}
+                onChange={handleChange}
+                className="h-4 w-4 text-lime-500 border-gray-300 focus:ring-lime-400"
+              />
+              Sí, pero 0,0%
+            </label>
+
+            <label className="flex items-center gap-2 text-sm text-gray-700">
+              <input
+                type="radio"
+                name="cata"
+                value="no"
+                checked={form.cata === "no"}
+                onChange={handleChange}
+                className="h-4 w-4 text-lime-500 border-gray-300 focus:ring-lime-400"
+              />
+              No
+            </label>
+          </div>
+        </div>
       </div>
 
       {/* Botón */}

@@ -98,6 +98,5 @@ export default function RsvpForm() {
         </button>
       </div>
     </form>
-
   )
 }
