@@ -5,8 +5,8 @@ export default function RsvpForm() {
   const [form, setForm] = useState({
     nombre: "",
     asistencia: "",
-    plusOne: false,
-    cata: false,
+    acompañante: "",
+    nombre_acompañante: "",
     alergias: "",
     menu: [],
     carneopescado: "",
@@ -17,7 +17,7 @@ export default function RsvpForm() {
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    if (type === "checkbox") {
+    if (type === "checkbox" && name === "menu") {
       setForm((prev) => {
         if (checked) {
           return { ...prev, [name]: [...prev[name], value] };
@@ -45,7 +45,7 @@ export default function RsvpForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-8 bg-white p-8 rounded-2xl shadow-lg border border-lime-100">
+    <form onSubmit={handleSubmit} className="space-y-8 bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-lime-100">
       {/* Nombre */}
       <div>
         <label htmlFor="nombre" className="block font-medium text-gray-700 mb-2">
@@ -68,7 +68,7 @@ export default function RsvpForm() {
         <label className="block font-medium text-gray-700 mb-2">
           ¿Asistirás?
         </label>
-        <div className="flex gap-6">
+        <div className="flex flex-col sm:flex-row gap-4">
           <label className="flex items-center gap-2 text-sm text-gray-700">
             <input
               type="checkbox"
@@ -99,7 +99,7 @@ export default function RsvpForm() {
         <label className="block font-medium text-gray-700 mb-2">
           ¿Traerás acompañante?
         </label>
-        <div className="flex gap-6">
+        <div className="flex flex-col sm:flex-row gap-4">
           <label className="flex items-center gap-2 text-sm text-gray-700">
             <input
               type="checkbox"
@@ -124,6 +124,8 @@ export default function RsvpForm() {
           </label>
         </div>
       </div>
+
+      {/* Nombre acompañante */}
       <div>
         <label htmlFor="nombre_acompañante" className="block font-medium text-gray-700 mb-2">
           Nombre del acompañante
@@ -132,7 +134,7 @@ export default function RsvpForm() {
           id="nombre_acompañante"
           name="nombre_acompañante"
           type="text"
-          placeholder="Ej: Juan García"
+          placeholder="Ej: María Pérez"
           value={form.nombre_acompañante}
           onChange={handleChange}
           className="w-full p-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-lime-400 focus:border-lime-400 shadow-sm"
@@ -160,7 +162,7 @@ export default function RsvpForm() {
         <p className="block font-medium text-gray-700 mb-2">
           Preferencia de menú
         </p>
-        <div className="flex gap-6 text-sm text-gray-700">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 text-sm text-gray-700">
           {["Normal", "Vegetariano", "Vegano", "Sin gluten", "Embarazo"].map((opcion) => (
             <label key={opcion} className="flex items-center gap-2">
               <input
@@ -170,7 +172,7 @@ export default function RsvpForm() {
                 checked={form.menu.includes(opcion.toLowerCase())}
                 onChange={handleChange}
                 className="h-4 w-4 rounded border-gray-300 text-lime-500 focus:ring-lime-400"
-                required
+                required={form.menu.length === 0}
               />
               <span>{opcion}</span>
             </label>
@@ -183,9 +185,9 @@ export default function RsvpForm() {
         <p className="block font-medium text-gray-700 mb-2">
           Carne o Pescado
         </p>
-        <div className="flex gap-6 space-y-2 text-sm text-gray-700">
+        <div className="flex flex-col sm:flex-row gap-4 text-sm text-gray-700">
           {["Carne", "Pescado", "Otro (Vegano, vegetariano...)"].map((opcion) => (
-            <label key={opcion} className="flex items-center space-x-2">
+            <label key={opcion} className="flex items-center gap-2">
               <input
                 type="radio"
                 name="carneopescado"
@@ -211,13 +213,13 @@ export default function RsvpForm() {
         <p className="block text-sm font-medium text-gray-700 mb-1">
           Habrá opción desde Fuenlabrada y Madrid. Por favor, indícanos si te gustaría desplazarte en autobús:
         </p>
-        <div className="space-y-2 text-sm text-gray-700">
+        <div className="flex flex-col gap-2 text-sm text-gray-700">
           {[
             { label: "Sí, agradecería transporte (Fuenlabrada)", value: "fuenlabrada" },
             { label: "Sí, agradecería transporte (Madrid)", value: "madrid" },
             { label: "No, iré por mi cuenta", value: "no" },
           ].map(({ label, value }) => (
-            <label key={value} className="flex items-center space-x-2">
+            <label key={value} className="flex items-center gap-2">
               <input
                 type="radio"
                 name="transporte"
