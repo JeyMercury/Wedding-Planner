@@ -186,7 +186,7 @@ export default function RsvpForm() {
           Carne o Pescado
         </p>
         <div className="flex flex-col sm:flex-row gap-4 text-sm text-gray-700">
-          {["Carne", "Pescado", "Otro (Vegano, vegetariano...)"].map((opcion) => (
+          {["Carne", "Pescado"].map((opcion) => (
             <label key={opcion} className="flex items-center gap-2">
               <input
                 type="radio"
