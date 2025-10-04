@@ -15,7 +15,7 @@ export default function Home() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[60%_center] md:object-center"
+          className="object-cover object-[70%_center] md:object-center"
         />
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-center px-4">
