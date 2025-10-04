@@ -49,7 +49,7 @@ export default function RsvpForm() {
         <label className="block text-sm font-medium text-gray-700 mb-2">
           ¿Asistirás a la cata de cervezas?
         </label>
-        <div className="flex flex-col sm:flex-row gap-6 justify-center">
+        <div className="flex flex-col sm:flex-row sm:flex-center gap-6 justify-center">
           <label className="flex items-center gap-2 text-sm text-gray-700">
             <input
               type="radio"
