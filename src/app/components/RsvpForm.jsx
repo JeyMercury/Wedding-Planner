@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image"
 import { useState } from "react"
-import { insertRsvp } from '../utils/insertRsvp'
+import { insertRsvp } from '../../lib/insertRsvp'
 
 export default function RsvpForm() {
   const [form, setForm] = useState({
