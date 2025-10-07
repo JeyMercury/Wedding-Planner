@@ -21,12 +21,13 @@ export default function RsvpForm() {
     const { name, value, type, checked } = e.target;
 
     if (type === "checkbox" && name === "menu") {
-      setForm((prev) => {
-       checked
+      setForm((prev) =>
+        checked
           ? { ...prev, [name]: [...prev[name], value] }
           : { ...prev, [name]: prev[name].filter((v) => v !== value) }
-      });
-    } else {
+      );
+    }
+    else {
       setForm((prev) => ({
         ...prev,
         [name]: value,
