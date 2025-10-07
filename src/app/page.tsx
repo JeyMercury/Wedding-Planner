@@ -2,7 +2,6 @@
 
 import Image from "next/image"
 import RsvpForm from "./components/RsvpForm"
-// import CataForm from "./components/CataForm"
 
 export default function Home() {
   return (
@@ -36,23 +35,26 @@ export default function Home() {
 
       {/* Bienvenida / mensaje */}
       <section className="py-16 px-6 max-w-3xl mx-auto text-center">
+        {/* <div className="absolute left-1/2 -translate-x-1/2 w-64 opacity-60 z-[0]">
+          <Image
+            src="/images/acuarela_planta.jpeg"
+            alt="Decoración floral"
+            width={300}
+            height={150}
+            className="mx-auto"
+          />
+        </div> */}
         <h2 className="text-3xl font-serif text-lime-800 mb-6">
           ¡Bienvenidos a nuestra boda!
         </h2>
         <p className="text-lg leading-relaxed mb-4">
-          ¡Que sí! ¡Que nos casamos! Estamos super felices y queremos compartir contigo todo nuestro amor.  
-          Aquí podrás enterarte de los detalles y confirmar tu asistencia.
+          ¡Nos casamos! 🎉
         </p>
         <p className="text-lg leading-relaxed mb-4">
-          Mientras llega el gran día hemos creado esta web con un montón de secciones para que estés al día 
-          de todo y para compartir nuestra historia de amor.
+          En esta web encontrarás toda la información sobre el gran día y podrás confirmar tu asistencia.
         </p>
         <p className="text-lg leading-relaxed mb-4">
-          Una cosa importante, en la sección asistencia puedes confirmar si vas a la boda o no. Confírmanos 
-          lo antes posible, que así organizarlo todo nos será mucho más fácil.
-        </p>
-        <p className="text-lg leading-relaxed">
-          ¡Disfruta la web y nos vemos muy pronto, mil besos!
+          ¡Te esperamos con muchas ganas para celebrar juntos!
         </p>
       </section>
 
@@ -97,16 +99,6 @@ export default function Home() {
           <RsvpForm />
         </div>
       </section>
-
-      {/* Preguntas / encuesta */}
-      {/* <section className="py-16 px-6 bg-gray-50">
-        <h2 className="text-3xl font-serif text-lime-800 mb-6 text-center">
-          Asistencia a Cata de Cerveza
-        </h2>
-        <div className="max-w-xl mx-auto ">
-          <CataForm />
-        </div>
-      </section> */}
 
       {/* Pie / contacto */}
       <footer className="py-12 bg-white border-t">

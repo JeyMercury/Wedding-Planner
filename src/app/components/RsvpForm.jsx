@@ -145,8 +145,11 @@ export default function RsvpForm() {
       {/* Alergias / intolerancias */}
       <div>
         <label htmlFor="alergias" className="block font-medium text-gray-700 mb-2">
-          ¿Tienes alergias o intolerancias?
+          Alergias o Intolerancias 🗒️
         </label>
+        <p className="block text-sm font-medium text-gray-700 mb-1">
+          ¿Tienes alguna alergia que debamos saber?
+        </p>
         <input
           id="alergias"
           name="alergias"
@@ -161,7 +164,16 @@ export default function RsvpForm() {
       {/* Menú */}
       <div>
         <p className="block font-medium text-gray-700 mb-2">
-          Preferencia de menú
+          Preferencia de menú 🎉
+        </p>
+        <p className="block text-sm font-medium text-gray-700 mb-1">
+          ¡Queremos que tu experiencia en nuestra boda sea perfecta!
+        </p>
+        <p className="block text-sm font-medium text-gray-700 mb-1">
+          Para asegurarnos de que todos disfrutéis de la comida,
+        </p>
+        <p className="block text-sm font-medium text-gray-700 mb-1">
+          por favor indícanos si tienes alguna restricción alimentaria. (Si no tienes ninguna, no es necesario contestar)
         </p>
         <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 text-sm text-gray-700">
           {["Normal", "Vegetariano", "Vegano", "Sin gluten", "Embarazo"].map((opcion) => (
@@ -184,7 +196,10 @@ export default function RsvpForm() {
       {/* Carne o Pescado */}
       <div>
         <p className="block font-medium text-gray-700 mb-2">
-          Carne o Pescado
+          Carne o Pescado 🍽️
+        </p>
+        <p className="block text-sm font-medium text-gray-700 mb-1">
+          Por favor, elige tu preferencia para el plato principal.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 text-sm text-gray-700">
           {["Carne", "Pescado"].map((opcion) => (
@@ -256,15 +271,25 @@ export default function RsvpForm() {
         <h2 className="text-3xl font-serif text-lime-800 mb-6 text-center">
           Asistencia a Cata de Cerveza
         </h2>
-        <Image
-          src="/images/juanjo_beer_square.jpg" 
-          alt="Foto de título"
-          width={250}
-          height={175}
-          priority
-          sizes="100vw"
-          className="object-cover object-[70%_center] md:object-center mb-4"
-        />
+        <div className="md:flex md:flex-center">
+          <Image
+            src="/images/juanjo_beer_square.jpg" 
+            alt="Foto de título"
+            width={250}
+            height={175}
+            priority
+            sizes="100vw"
+            className="object-cover object-[70%_center] md:object-center md:mb-4"
+          />
+            <Image
+              src="/images/alba_beer_square.jpg" 
+              alt="Foto de título"
+              width={250}
+              height={175}
+              priority
+              className="object-cover object-[70%_center] md:object-center mb-4"
+            />
+          </div>
         <div className="flex justify-center">
           <label htmlFor="cata" className="block text-sm font-medium text-gray-700 mb-4 text-center">
             <p>¿Te gustaría asistir a una cata maridaje con cerveza durante el cóctel? 🍺</p>
