@@ -11,8 +11,8 @@ export async function insertRsvp(form) {
     const { 
       nombre,
       asistencia,
-      acompañante,
-      nombre_acompañante,
+      acompanante,
+      nombre_acompanante,
       alergias,
       menu,
       carneopescado,
@@ -27,8 +27,8 @@ export async function insertRsvp(form) {
         {
           nombre,
           asistencia: asistencia === 'sí',
-          acompañante: acompañante === 'sí',
-          nombre_acompañante: nombre_acompañante || null,
+          acompanante: acompanante === 'sí',
+          nombre_acompanante: nombre_acompanante || null,
           alergias: alergias || null,
           menu: Array.isArray(menu) ? menu.join(', ') : menu || null,
           carneopescado: carneopescado || null,

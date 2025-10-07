@@ -7,8 +7,8 @@ export default function RsvpForm() {
   const [form, setForm] = useState({
     nombre: "",
     asistencia: "",
-    acompañante: "",
-    nombre_acompañante: "",
+    acompanante: "",
+    nombre_acompanante: "",
     alergias: "",
     menu: [],
     carneopescado: "",
@@ -44,8 +44,8 @@ export default function RsvpForm() {
       setForm({
         nombre: "",
         asistencia: "",
-        acompañante: "",
-        nombre_acompañante: "",
+        acompanante: "",
+        nombre_acompanante: "",
         alergias: "",
         menu: [],
         carneopescado: "",
@@ -90,6 +90,7 @@ export default function RsvpForm() {
               onChange={() =>
                 setForm({ ...form, asistencia: form.asistencia === "sí" ? "" : "sí" })
               }
+              required
               className="h-4 w-4 text-lime-500 border-gray-300 focus:ring-lime-400"
             />
             Sí
@@ -117,9 +118,9 @@ export default function RsvpForm() {
           <label className="flex items-center gap-2 text-sm text-gray-700">
             <input
               type="checkbox"
-              checked={form.acompañante === "sí"}
+              checked={form.acompanante === "sí"}
               onChange={() =>
-                setForm({ ...form, acompañante: form.acompañante === "sí" ? "" : "sí" })
+                setForm({ ...form, acompanante: form.acompanante === "sí" ? "" : "sí" })
               }
               className="h-4 w-4 text-lime-500 border-gray-300 focus:ring-lime-400"
             />
@@ -128,9 +129,9 @@ export default function RsvpForm() {
           <label className="flex items-center gap-2 text-sm text-gray-700">
             <input
               type="checkbox"
-              checked={form.acompañante === "no"}
+              checked={form.acompanante === "no"}
               onChange={() =>
-                setForm({ ...form, acompañante: form.acompañante === "no" ? "" : "no" })
+                setForm({ ...form, acompanante: form.acompanante === "no" ? "" : "no" })
               }
               className="h-4 w-4 text-lime-500 border-gray-300 focus:ring-lime-400"
             />
@@ -141,15 +142,15 @@ export default function RsvpForm() {
 
       {/* Nombre acompañante */}
       <div>
-        <label htmlFor="nombre_acompañante" className="block font-medium text-gray-700 mb-2">
+        <label htmlFor="nombre_acompanante" className="block font-medium text-gray-700 mb-2">
           Nombre del acompañante
         </label>
         <input
-          id="nombre_acompañante"
-          name="nombre_acompañante"
+          id="nombre_acompanante"
+          name="nombre_acompanante"
           type="text"
           placeholder="Ej: María Pérez"
-          value={form.nombre_acompañante}
+          value={form.nombre_acompanante}
           onChange={handleChange}
           className="w-full p-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-lime-400 focus:border-lime-400 shadow-sm"
         />
