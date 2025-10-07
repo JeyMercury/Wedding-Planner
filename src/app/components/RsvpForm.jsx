@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image"
 import { useState } from "react"
+import { insertRsvp } from '../utils/insertRsvp'
 
 export default function RsvpForm() {
   const [form, setForm] = useState({
@@ -12,7 +13,8 @@ export default function RsvpForm() {
     menu: [],
     carneopescado: "",
     transporte: "",
-    comentarios: ""
+    comentarios: "",
+    cata: ""
   })
 
   const handleChange = (e) => {
@@ -20,11 +22,9 @@ export default function RsvpForm() {
 
     if (type === "checkbox" && name === "menu") {
       setForm((prev) => {
-        if (checked) {
-          return { ...prev, [name]: [...prev[name], value] };
-        } else {
-          return { ...prev, [name]: prev[name].filter((v) => v !== value) };
-        }
+       checked
+          ? { ...prev, [name]: [...prev[name], value] }
+          : { ...prev, [name]: prev[name].filter((v) => v !== value) }
       });
     } else {
       setForm((prev) => ({
@@ -34,15 +34,27 @@ export default function RsvpForm() {
     }
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    const res = await fetch("/api/rsvp", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form)
-    })
-    const data = await res.json()
-    alert(data.message)
+    const result = await insertRsvp(form)
+
+    if (result.success) {
+      alert("✅ Respuesta enviada correctamente. ¡Gracias!")
+      setForm({
+        nombre: "",
+        asistencia: "",
+        acompañante: "",
+        nombre_acompañante: "",
+        alergias: "",
+        menu: [],
+        carneopescado: "",
+        transporte: "",
+        comentarios: "",
+        cata: ""
+      })
+    } else {
+      alert("❌ Error al enviar la respuesta: " + result.error)
+    }
   }
 
   return (
