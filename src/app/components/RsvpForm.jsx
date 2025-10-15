@@ -15,7 +15,7 @@ export default function RsvpForm() {
     transporte: "",
     comentarios: "",
     cata: ""
-  })
+  });
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -36,11 +36,21 @@ export default function RsvpForm() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    const result = await insertRsvp(form)
+    e.preventDefault();
+
+    // Validación básica antes de enviar
+    if (!form.nombre || !form.asistencia || !form.menu.length || !form.cata) {
+      alert("Por favor, completa los campos obligatorios.");
+      return;
+    }
+
+    const result = await insertRsvp({
+      ...form,
+      menu: form.menu[0] || "normal"
+    });
 
     if (result.success) {
-      alert("✅ Respuesta enviada correctamente. ¡Gracias!")
+      alert("✅ Respuesta enviada correctamente. ¡Gracias!");
       setForm({
         nombre: "",
         asistencia: "",
@@ -52,11 +62,11 @@ export default function RsvpForm() {
         transporte: "",
         comentarios: "",
         cata: ""
-      })
+      });
     } else {
-      alert("❌ Error al enviar la respuesta: " + result.error)
+      alert("❌ Error al enviar la respuesta: " + result.error);
     }
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-8 bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-lime-100">

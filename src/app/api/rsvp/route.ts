@@ -1,26 +1,54 @@
-import { NextResponse } from "next/server"
-import { supabase } from "@/lib/supabaseClient"
+import { NextResponse } from "next/server";
+import { supabase } from "@/lib/supabaseClient";
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json()
+    const body = await req.json();
 
-    const { error } = await supabase
-      .from("rsvps")
-      .insert([
-        {
-          nombre: body.nombre,
-          asistencia: body.asistencia,
-          plus_one: body.plusOne,
-          cata: body.cata,
-        },
-      ])
+    // Validación básica de los campos requeridos
+    if (!body.nombre || !body.asistencia || !body.menu || !body.cata) {
+      return NextResponse.json(
+        { message: "Faltan campos obligatorios." },
+        { status: 400 }
+      );
+    }
 
-    if (error) throw error
+    // Inserta los datos en Supabase
+    const { error } = await supabase.from("rsvps").insert([
+      {
+        nombre: body.nombre,
+        asistencia: body.asistencia === "sí",
+        acompanante:
+          body.acompanante === true ||
+          body.acompanante === "sí" ||
+          body.acompanante === "true"
+            ? "sí"
+            : "no",
+        nombre_acompanante: body.nombre_acompanante || null,
+        alergias: body.alergias || null,
+        menu: Array.isArray(body.menu)
+          ? body.menu.join(", ")
+          : body.menu || null,
+        carneopescado: body.carneopescado || null,
+        transporte: body.transporte || null,
+        comentarios: body.comentarios || null,
+        cata: body.cata,
+      },
+    ]);
 
-    return NextResponse.json({ message: "Confirmación guardada con éxito 🎉" })
-  } catch (err) {
-    console.error(err)
-    return NextResponse.json({ message: "Error al guardar" }, { status: 500 })
+    if (error) {
+      console.error("❌ Error Supabase:", error);
+      throw error;
+    }
+
+    return NextResponse.json({
+      message: "✅ Confirmación guardada con éxito 🎉",
+    });
+  } catch (err: any) {
+    console.error("❌ Error general:", err);
+    return NextResponse.json(
+      { message: "Error al guardar la confirmación." },
+      { status: 500 }
+    );
   }
 }

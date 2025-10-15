@@ -7,7 +7,6 @@ import { supabase } from './supabaseClient'
  */
 export async function insertRsvp(form) {
   try {
-    // Mapeamos los datos del formulario al formato de la tabla
     const { 
       nombre,
       asistencia,
@@ -26,15 +25,24 @@ export async function insertRsvp(form) {
       .insert([
         {
           nombre,
-          asistencia: asistencia === 'sí',
-          acompanante: acompanante === 'sí',
+          asistencia: 
+            asistencia === true || asistencia === 'sí' || asistencia === 'true'
+              ? 'sí'
+              : 'no',
+          acompanante: 
+            acompanante === true || acompanante === 'sí' || acompanante === 'true'
+              ? 'sí'
+              : 'no',
           nombre_acompanante: nombre_acompanante || null,
           alergias: alergias || null,
           menu: Array.isArray(menu) ? menu.join(', ') : menu || null,
           carneopescado: carneopescado || null,
           transporte: transporte || null,
           comentarios: comentarios || null,
-          cata: cata || null,
+          cata:
+            cata === true || cata === 'sí' || cata === 'true'
+              ? 'sí'
+              : 'no',
         }
       ])
 
