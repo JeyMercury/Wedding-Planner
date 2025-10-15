@@ -104,6 +104,11 @@ export default function Home() {
       <footer className="py-12 bg-white border-t">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-gray-800">¿Dudas o consultas? Escríbenos.</p>
+          <p className="mt-2 text-gray-500">
+            <span>Whatsapp: 650536101</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>Email: jj.garcia.navas@hotmail.es</span>
+          </p>
           <p className="mt-2 text-gray-500">© 2026 Alba & Juanjo</p>
         </div>
       </footer>

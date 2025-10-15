@@ -50,7 +50,7 @@ export default function RsvpForm() {
     });
 
     if (result.success) {
-      alert("✅ Respuesta enviada correctamente. ¡Gracias!");
+      alert("✅ Respuesta enviada correctamente. ¡Gracias!. Si quieres hacer alguna modificación, ponte en contacto con nosotros.");
       setForm({
         nombre: "",
         asistencia: "",
