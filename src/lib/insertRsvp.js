@@ -1,13 +1,13 @@
 import { supabase } from './supabaseClient'
 
 /**
- * Inserta los datos del formulario en la tabla "rsvps" de Supabase
+ * Inserta o actualiza los datos del formulario en la tabla "rsvps"
  * @param {Object} form - Datos recogidos del formulario
  * @returns {Promise<{ success: boolean, error?: string }>}
  */
 export async function insertRsvp(form) {
   try {
-    const { 
+    const {
       nombre,
       asistencia,
       acompanante,
@@ -22,7 +22,7 @@ export async function insertRsvp(form) {
 
     const { error } = await supabase
       .from('rsvps')
-      .insert([
+      .upsert([
         {
           nombre,
           asistencia: 
@@ -43,18 +43,19 @@ export async function insertRsvp(form) {
             cata === true || cata === 'sí' || cata === 'true'
               ? 'sí'
               : 'no',
+          created_at: new Date().toISOString()
         }
-      ])
+      ],{ onConflict: 'nombre' })
 
     if (error) {
-      console.error('❌ Error insertando en Supabase:', error.message)
+      console.error('❌ Error insertando/actualizando en Supabase:', error.message)
       return { success: false, error: error.message }
     }
 
     return { success: true }
 
   } catch (err) {
-    console.error('❌ Error inesperado al insertar RSVP:', err)
+    console.error('❌ Error inesperado al insertar/actualizar RSVP:', err)
     return { success: false, error: err.message }
   }
 }
