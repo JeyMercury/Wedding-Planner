@@ -257,7 +257,7 @@ export default function RsvpForm() {
                   Para asegurarnos de que todos disfrutéis de la comida,
                 </p>
                 <p className="block text-sm font-medium text-gray-700 mb-1">
-                  por favor indícanos si tienes alguna restricción alimentaria. (Si no tienes ninguna, no es necesario contestar)
+                  por favor indícanos si tienes alguna restricción alimentaria.
                 </p>
                 <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 text-sm text-gray-700">
                   {["Normal", "Vegetariano", "Vegano", "Sin gluten", "Embarazo"].map((opcion) => (

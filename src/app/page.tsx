@@ -34,28 +34,56 @@ export default function Home() {
       </section>
 
       {/* Bienvenida / mensaje */}
-      <section className="py-16 px-6 max-w-3xl mx-auto text-center">
-        {/* <div className="absolute left-1/2 -translate-x-1/2 w-64 opacity-60 z-[0]">
+      <section className="relative py-16 px-6 mx-auto text-center bg-white rounded-2xl overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 z-0 opacity-60">
+          {/* Esquina inferior derecha */}
           <Image
             src="/images/acuarela_planta.jpeg"
             alt="Decoración floral"
             width={300}
-            height={150}
-            className="mx-auto"
+            height={300}
+            className="absolute bottom-0 right-0 w-55 rotate-[-20deg] scale-x-[-1] scale-y-[1] opacity-60"
           />
-        </div> */}
-        <h2 className="text-3xl font-serif text-lime-800 mb-6">
-          ¡Bienvenidos a nuestra boda!
-        </h2>
-        <p className="text-lg leading-relaxed mb-4">
-          ¡Nos casamos! 🎉
-        </p>
-        <p className="text-lg leading-relaxed mb-4">
-          En esta web encontrarás toda la información sobre el gran día y podrás confirmar tu asistencia.
-        </p>
-        <p className="text-lg leading-relaxed mb-4">
-          ¡Te esperamos con muchas ganas para celebrar juntos!
-        </p>
+          {/* Esquina superior derecha */}
+          <Image
+            src="/images/acuarela_planta.jpeg"
+            alt="Decoración floral"
+            width={300}
+            height={300}
+            className="absolute top-0 right-0 w-55 rotate-[20deg] scale-x-[-1] scale-y-[-1] opacity-60"
+          />
+          {/* Esquina inferior izquierda */}
+          <Image
+            src="/images/acuarela_planta.jpeg"
+            alt="Decoración floral"
+            width={300}
+            height={300}
+            className="absolute bottom-0 left-0 w-55 rotate-[20deg] scale-x-[1] scale-y-[1] opacity-60"
+          />
+          {/* Esquina superior izquierda */}
+          <Image
+            src="/images/acuarela_planta.jpeg"
+            alt="Decoración floral"
+            width={300}
+            height={300}
+            className="absolute top-0 left-0 w-55 rotate-[-20deg] scale-x-[1] scale-y-[-1] opacity-60"
+          />
+        </div>
+
+        <div className="relative z-10">
+          <h2 className="text-3xl font-serif text-lime-800 mb-6">
+            ¡Bienvenidos a nuestra boda!
+          </h2>
+          <p className="text-lg leading-relaxed mb-4">
+            ¡Nos casamos! 🎉
+          </p>
+          <p className="text-lg leading-relaxed mb-4">
+            En esta web encontrarás toda la información sobre el gran día y podrás confirmar tu asistencia.
+          </p>
+          <p className="text-lg leading-relaxed mb-4">
+            ¡Te esperamos con muchas ganas para celebrar juntos!
+          </p>
+        </div>
       </section>
 
       {/* Detalles de la boda */}
