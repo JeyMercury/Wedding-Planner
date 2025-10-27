@@ -123,6 +123,28 @@ export default function Home() {
         <h2 className="text-3xl font-serif text-lime-800 mb-8 text-center">
           Confirma tu asistencia
         </h2>
+        <div className="md:flex md:flex-center justify-center">
+          <Image
+            src="/images/jazz_wedding_web.jpg" 
+            alt="Foto de título"
+            width={150}
+            height={150}
+            priority
+            className="object-cover h-40"
+          />
+          <Image
+            src="/images/silver_wedding_web.jpg" 
+            alt="Foto de título"
+            width={150}
+            height={150}
+            priority
+            className="object-cover h-40"
+          />
+        </div>
+        <div className="text-center">
+          <p>"Nosotros no podemos ir,</p>
+          <p>pero esperamos que tú sí."</p>
+        </div>
         <div className="max-w-xl mx-auto">
           <RsvpForm />
         </div>

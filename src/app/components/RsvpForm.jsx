@@ -111,7 +111,7 @@ export default function RsvpForm() {
       {/* Nombre */}
       <div>
         <label htmlFor="nombre" className="block font-medium text-gray-700 mb-2">
-          Tu nombre
+          Tu nombre:
         </label>
         <input
           id="nombre"
@@ -128,7 +128,7 @@ export default function RsvpForm() {
       {/* Asistencia */}
       <div>
         <label className="block font-medium text-gray-700 mb-2">
-          ¿Asistirás?
+          ¿Asistirás?:
         </label>
         <div className="flex flex-col sm:flex-row gap-4">
           <label className="flex items-center gap-2 text-sm text-gray-700">
@@ -169,7 +169,7 @@ export default function RsvpForm() {
             {/* Acompañante */}
             <div>
               <label className="block font-medium text-gray-700 mb-2">
-                ¿Traerás acompañante?
+                ¿Traerás acompañante?:
               </label>
               <div className="flex flex-col sm:flex-row gap-4">
                 <label className="flex items-center gap-2 text-sm text-gray-700">
@@ -218,7 +218,7 @@ export default function RsvpForm() {
                   className="overflow-hidden mt-4"
                 >
                   <label htmlFor="nombre_acompanante" className="block font-medium text-gray-700 mb-2">
-                    Nombre del acompañante
+                    Nombre del acompañante:
                   </label>
                   <input
                     id="nombre_acompanante"
@@ -236,7 +236,7 @@ export default function RsvpForm() {
             {/* Niños */}
             <div className="mt-8">
               <label className="block font-medium text-gray-700 mb-2">
-                ¿Traerás niños?
+                ¿Traerás niños?:
               </label>
               <div className="flex flex-col sm:flex-row gap-4">
                 <label className="flex items-center gap-2 text-sm text-gray-700">
@@ -284,7 +284,7 @@ export default function RsvpForm() {
                     className="overflow-hidden mt-4"
                   >
                     <label htmlFor="cantidad_ninos" className="block font-medium text-gray-700 mb-2">
-                      ¿Cuántos niños?
+                      ¿Cuántos niños?:
                     </label>
                     <input
                       id="cantidad_ninos"
@@ -308,7 +308,7 @@ export default function RsvpForm() {
                 Alergias o Intolerancias 🗒️
               </label>
               <p className="block text-sm font-medium text-gray-700 mb-1">
-                ¿Tienes alguna alergia que debamos saber?
+                ¿Tienes alguna alergia que debamos saber?:
               </p>
               <input
                 id="alergias"
@@ -333,7 +333,7 @@ export default function RsvpForm() {
                 Para asegurarnos de que todos disfrutéis de la comida,
               </p>
               <p className="block text-sm font-medium text-gray-700 mb-1">
-                por favor indícanos si tienes alguna restricción alimentaria.
+                por favor, indícanos si tienes alguna restricción alimentaria:
               </p>
               <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 text-sm text-gray-700">
                 {["Normal", "Vegetariano", "Vegano", "Sin gluten", "Embarazo"].map((opcion) => (
@@ -359,7 +359,7 @@ export default function RsvpForm() {
                 Carne o Pescado 🍽️
               </p>
               <p className="block text-sm font-medium text-gray-700 mb-1">
-                Por favor, elige tu preferencia para el plato principal.
+                Por favor, elige tu preferencia para el plato principal:
               </p>
               <div className="flex flex-col sm:flex-row gap-4 text-sm text-gray-700">
                 {["Carne", "Pescado"].map((opcion) => (
@@ -413,7 +413,7 @@ export default function RsvpForm() {
             {/* Comentarios */}
             <div className="mt-8">
               <label htmlFor="comentarios" className="block text-sm font-medium text-gray-700 mb-1">
-                Comentarios / mensaje adicional
+                Comentarios / mensaje adicional:
               </label>
               <textarea
                 id="comentarios"
@@ -453,14 +453,14 @@ export default function RsvpForm() {
               <div className="flex justify-center">
                 <label htmlFor="cata" className="block text-sm font-medium text-gray-700 mb-4 text-center">
                   <p>¿Te gustaría asistir a una cata maridaje con cerveza durante el cóctel? 🍺</p>
-                  <p>(3 cervezas con aperitivo, unos 30 minutos de duración)</p>
+                  <p>(3 cervezas con aperitivo, unos 30 minutos de duración):</p>
                 </label>
               </div>
 
               <div className="text-center item">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                {/* <label className="block text-sm font-medium text-gray-700 mb-2">
                   ¿Asistirás a la cata de cervezas?
-                </label>
+                </label> */}
                 <div className="flex flex-col sm:flex-row gap-6 items-center justify-center">
                   <label className="flex items-center gap-2 text-sm text-gray-700">
                     <input
