@@ -34,7 +34,7 @@ export async function POST(req: Request) {
         cantidad_ninos:
           body.ninos === "sí" && body.cantidad_ninos !== ""
             ? Number(body.cantidad_ninos)
-            : null,
+            : 0,
         alergias: body.alergias || null,
         menu: Array.isArray(body.menu)
           ? body.menu.join(", ")

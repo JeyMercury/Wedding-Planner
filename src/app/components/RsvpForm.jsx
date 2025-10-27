@@ -76,7 +76,7 @@ export default function RsvpForm() {
       cantidad_ninos:
         form.ninos === "sí" && form.cantidad_ninos
           ? parseInt(form.cantidad_ninos)
-          : null,
+          : 0,
       menu:
         form.asistencia === "sí"
           ? form.menu[0] || "normal"
@@ -111,7 +111,7 @@ export default function RsvpForm() {
       {/* Nombre */}
       <div>
         <label htmlFor="nombre" className="block font-medium text-gray-700 mb-2">
-          Tu nombre:
+          Tu nombre: <span className="text-red-500">*</span>
         </label>
         <input
           id="nombre"
@@ -128,7 +128,7 @@ export default function RsvpForm() {
       {/* Asistencia */}
       <div>
         <label className="block font-medium text-gray-700 mb-2">
-          ¿Asistirás?:
+          ¿Asistirás?: <span className="text-red-500">*</span>
         </label>
         <div className="flex flex-col sm:flex-row gap-4">
           <label className="flex items-center gap-2 text-sm text-gray-700">
@@ -263,7 +263,7 @@ export default function RsvpForm() {
                       setForm({
                         ...form,
                         ninos: form.ninos === "no" ? "" : "no",
-                        cantidad_ninos: "",
+                        cantidad_ninos: 0,
                       })
                     }
                     className="h-4 w-4 text-lime-500 border-gray-300 focus:ring-lime-400"
@@ -324,7 +324,7 @@ export default function RsvpForm() {
             {/* Menú */}
             <div className="mt-8">
               <p className="block font-medium text-gray-700 mb-2">
-                Preferencia de menú 🎉
+                Preferencia de menú 🎉 <span className="text-red-500">*</span>
               </p>
               <p className="block text-sm font-medium text-gray-700 mb-1">
                 ¡Queremos que tu experiencia en nuestra boda sea perfecta!
@@ -429,7 +429,7 @@ export default function RsvpForm() {
             {/* Cata */}
             <div className="mt-8">
               <h2 className="text-3xl font-serif text-lime-800 mb-6 text-center">
-                Asistencia a Cata de Cerveza
+                Asistencia a Cata de Cerveza <span className="text-red-500">*</span>
               </h2>
               <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:justify-center">
                 <Image

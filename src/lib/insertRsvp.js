@@ -42,8 +42,8 @@ export async function insertRsvp(form) {
               : 'no',
           cantidad_ninos:
             ninos === true || ninos === 'sí' || ninos === 'true'
-              ? (cantidad_ninos !== '' ? Number(cantidad_ninos) : null)
-              : null,
+              ? (cantidad_ninos !== '' ? Number(cantidad_ninos) : 0)
+              : 0,
           alergias: alergias || null,
           menu: Array.isArray(menu) && menu.length > 0 ? menu.join(', ') : null,
           carneopescado: carneopescado || null,
