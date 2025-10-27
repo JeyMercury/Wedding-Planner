@@ -94,7 +94,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="p-6 bg-white rounded-2xl shadow">
             <h3 className="font-semibold text-xl mb-2">Fecha y hora</h3>
-            <p>28 Febrero 2026, 12:30</p>
+            <p>28 Febrero 2026, 13:00</p>
           </div>
           <div className="p-6 bg-white rounded-2xl shadow">
             <h3 className="font-semibold text-xl mb-2">Lugar</h3>
@@ -123,7 +123,7 @@ export default function Home() {
         <h2 className="text-3xl font-serif text-lime-800 mb-8 text-center">
           Confirma tu asistencia
         </h2>
-        <div className="md:flex md:flex-center justify-center">
+        <div className="flex flex-center justify-center">
           <Image
             src="/images/jazz_wedding_web.jpg" 
             alt="Foto de título"

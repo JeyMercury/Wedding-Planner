@@ -431,7 +431,7 @@ export default function RsvpForm() {
               <h2 className="text-3xl font-serif text-lime-800 mb-6 text-center">
                 Asistencia a Cata de Cerveza
               </h2>
-              <div className="md:flex md:flex-center">
+              <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:justify-center">
                 <Image
                   src="/images/juanjo_beer_square.jpg" 
                   alt="Foto de título"
