@@ -387,7 +387,7 @@ export default function RsvpForm() {
                 ¡Queremos organizar el transporte para que llegar a la boda sea fácil para todos!
               </p>
               <p className="block text-sm font-medium text-gray-700 mb-1">
-                Habrá opción desde Fuenlabrada y Madrid. Por favor, indícanos si te gustaría desplazarte en autobús:
+                Habrá opción desde Fuenlabrada y Madrid (ya os diremos dirección exacta y horarios). Por favor, indícanos si te gustaría desplazarte en autobús:
               </p>
               <div className="flex flex-col gap-2 text-sm text-gray-700">
                 {[
