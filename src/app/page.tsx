@@ -70,7 +70,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative z-10">
+        <div className="relative z-10 mt-8 mb-8">
           <h2 className="text-3xl font-serif text-lime-800 mb-6">
             ¡Bienvenidos a nuestra boda!
           </h2>

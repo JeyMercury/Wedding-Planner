@@ -12,6 +12,8 @@ export async function insertRsvp(form) {
       asistencia,
       acompanante,
       nombre_acompanante,
+      ninos,
+      cantidad_ninos,
       alergias,
       menu,
       carneopescado,
@@ -25,17 +27,25 @@ export async function insertRsvp(form) {
       .upsert([
         {
           nombre,
-          asistencia: 
+          asistencia:
             asistencia === true || asistencia === 'sí' || asistencia === 'true'
               ? 'sí'
               : 'no',
-          acompanante: 
+          acompanante:
             acompanante === true || acompanante === 'sí' || acompanante === 'true'
               ? 'sí'
               : 'no',
           nombre_acompanante: nombre_acompanante || null,
+          ninos:
+            ninos === true || ninos === 'sí' || ninos === 'true'
+              ? 'sí'
+              : 'no',
+          cantidad_ninos:
+            ninos === true || ninos === 'sí' || ninos === 'true'
+              ? (cantidad_ninos !== '' ? Number(cantidad_ninos) : null)
+              : null,
           alergias: alergias || null,
-          menu: Array.isArray(menu) ? menu.join(', ') : menu || null,
+          menu: Array.isArray(menu) && menu.length > 0 ? menu.join(', ') : null,
           carneopescado: carneopescado || null,
           transporte: transporte || null,
           comentarios: comentarios || null,

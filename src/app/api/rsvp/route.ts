@@ -25,6 +25,16 @@ export async function POST(req: Request) {
             ? "sí"
             : "no",
         nombre_acompanante: body.nombre_acompanante || null,
+        ninos: 
+          body.ninos === true ||
+          body.ninos === "sí" ||
+          body.ninos === "true"
+            ? "sí"
+            : "no",
+        cantidad_ninos:
+          body.ninos === "sí" && body.cantidad_ninos !== ""
+            ? Number(body.cantidad_ninos)
+            : null,
         alergias: body.alergias || null,
         menu: Array.isArray(body.menu)
           ? body.menu.join(", ")
