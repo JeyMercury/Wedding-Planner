@@ -123,7 +123,7 @@ export default function Home() {
         <h2 className="text-3xl font-serif text-lime-800 mb-8 text-center">
           Confirma tu asistencia
         </h2>
-        <div className="flex flex-center justify-center">
+        <div className="flex flex-center justify-center gap-4">
           <Image
             src="/images/jazz_wedding_web.jpg" 
             alt="Foto de título"
