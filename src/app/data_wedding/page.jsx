@@ -28,41 +28,48 @@ export default function AdminRsvps() {
 
   // 🔹 Calcular estadísticas
   const calcularEstadisticas = (data) => {
-    const totalAsistentes = data.length + data.filter(r => r.acompanante === "sí").length
-    const totalNinos = data.reduce((sum, r) => sum + (r.cantidad_ninos || 0), 0)
+    const totalAsistentes = data.length + data.filter(r => r.acompanante === "sí").length;
+    const totalNinos = data.reduce((sum, r) => sum + (r.cantidad_ninos || 0), 0);
+
+    const getMenuArray = (r) => {
+        if (!r.menu) return [];
+        return Array.isArray(r.menu)
+        ? r.menu.map(m => m.toLowerCase().trim())
+        : String(r.menu).split(",").map(m => m.toLowerCase().trim());
+    };
 
     const menus = {
-      normal: data.filter(r => !r.menu || r.menu === "normal").length,
-      vegetariano: data.filter(r => r.menu === "vegetariano").length,
-      vegano: data.filter(r => r.menu === "vegano").length,
-      sin_gluten: data.filter(r => r.menu === "sin gluten").length,
-      embarazo: data.filter(r => r.menu === "embarazo").length,
-    }
+        normal: data.filter(r => getMenuArray(r).includes("normal") || getMenuArray(r).length === 0).length,
+        vegetariano: data.filter(r => getMenuArray(r).includes("vegetariano")).length,
+        vegano: data.filter(r => getMenuArray(r).includes("vegano")).length,
+        sin_gluten: data.filter(r => getMenuArray(r).includes("sin gluten")).length,
+        embarazo: data.filter(r => getMenuArray(r).includes("embarazo")).length,
+    };
 
     const platos = {
-      carne: data.filter(r => r.carneopescado === "carne").length,
-      pescado: data.filter(r => r.carneopescado === "pescado").length,
-    }
+        carne: data.filter(r => r.carneopescado === "carne").length,
+        pescado: data.filter(r => r.carneopescado === "pescado").length,
+    };
 
     const transporte = {
-      fuenlabrada: data.filter(r => r.transporte === "fuenlabrada").length,
-      madrid: data.filter(r => r.transporte === "madrid").length,
-    }
+        fuenlabrada: data.filter(r => r.transporte === "fuenlabrada").length,
+        madrid: data.filter(r => r.transporte === "madrid").length,
+    };
 
     const catas = {
-      si: data.filter(r => r.cata === "sí").length,
-      si00: data.filter(r => r.cata === "sí-00").length,
-    }
+        si: data.filter(r => r.cata === "sí").length,
+        si00: data.filter(r => r.cata === "sí-00").length,
+    };
 
     setStats({
-      totalAsistentes,
-      totalNinos,
-      ...menus,
-      ...platos,
-      ...transporte,
-      ...catas
-    })
-  }
+        totalAsistentes,
+        totalNinos,
+        ...menus,
+        ...platos,
+        ...transporte,
+        ...catas,
+    });
+  };
 
   if (!stats) return <div className="p-10 text-center">Cargando datos...</div>
 
