@@ -13,7 +13,7 @@ export default function RsvpForm() {
     ninos: "",
     cantidad_ninos: "",
     alergias: "",
-    menu: [],
+    menu: "",
     carneopescado: "",
     transporte: "",
     comentarios: "",
@@ -79,7 +79,7 @@ export default function RsvpForm() {
           : 0,
       menu:
         form.asistencia === "sí"
-          ? form.menu[0] || "normal"
+          ? form.menu || "normal"
           : null,
     };
 

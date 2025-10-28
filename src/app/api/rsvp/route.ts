@@ -37,8 +37,10 @@ export async function POST(req: Request) {
             : 0,
         alergias: body.alergias || null,
         menu: Array.isArray(body.menu)
-          ? body.menu.join(", ")
-          : body.menu || null,
+          ? body.menu
+          : body.menu
+          ? [body.menu]
+          : null,
         carneopescado: body.carneopescado || null,
         transporte: body.transporte || null,
         comentarios: body.comentarios || null,
