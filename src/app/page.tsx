@@ -81,7 +81,7 @@ export default function Home() {
             En esta web encontrarás toda la información sobre el gran día y podrás confirmar tu asistencia.
           </p>
           <p className="text-lg leading-relaxed mb-4">
-            ¡Te esperamos con muchas ganas para celebrar juntos!
+            ¡Te esperamos con muchas ganas para celebrarlo juntos!
           </p>
         </div>
       </section>

@@ -169,8 +169,11 @@ export default function RsvpForm() {
             {/* Acompañante */}
             <div>
               <label className="block font-medium text-gray-700 mb-2">
-                ¿Traerás acompañante?:
+                ¿Traerás acompañante? 🧑‍🤝‍🧑
               </label>
+              <p className="block text-sm font-medium text-gray-700 mb-1">
+                 Responde "sí" en caso de que tu acompañante no tenga acceso a la invitación:
+              </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <label className="flex items-center gap-2 text-sm text-gray-700">
                   <input
@@ -236,7 +239,7 @@ export default function RsvpForm() {
             {/* Niños */}
             <div className="mt-8">
               <label className="block font-medium text-gray-700 mb-2">
-                ¿Traerás niños?:
+                ¿Traerás niños? 👨‍👩‍👧‍👦:
               </label>
               <div className="flex flex-col sm:flex-row gap-4">
                 <label className="flex items-center gap-2 text-sm text-gray-700">
@@ -429,7 +432,7 @@ export default function RsvpForm() {
             {/* Cata */}
             <div className="mt-8">
               <h2 className="text-3xl font-serif text-lime-800 mb-6 text-center">
-                Asistencia a Cata de Cerveza <span className="text-red-500">*</span>
+                Asistencia a Cata de Cerveza 
               </h2>
               <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:justify-center">
                 <Image
@@ -452,7 +455,7 @@ export default function RsvpForm() {
                 </div>
               <div className="flex justify-center">
                 <label htmlFor="cata" className="block text-sm font-medium text-gray-700 mb-4 text-center">
-                  <p>¿Te gustaría asistir a una cata maridaje con cerveza durante el cóctel? 🍺</p>
+                  <p>¿Te gustaría asistir a una cata maridaje con cerveza durante el cóctel? 🍺 <span className="text-red-500">*</span></p>
                   <p>(3 cervezas con aperitivo, unos 30 minutos de duración):</p>
                 </label>
               </div>
