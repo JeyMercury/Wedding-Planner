@@ -49,10 +49,7 @@ export async function insertRsvp(form) {
           carneopescado: carneopescado || null,
           transporte: transporte || null,
           comentarios: comentarios || null,
-          cata:
-            cata === true || cata === 'sí' || cata === 'true'
-              ? 'sí'
-              : 'no',
+          cata: cata || null,
           created_at: new Date().toISOString()
         }
       ],{ onConflict: 'nombre' })
