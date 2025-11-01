@@ -111,7 +111,7 @@ export default function RsvpForm() {
       {/* Nombre */}
       <div>
         <label htmlFor="nombre" className="block font-medium text-gray-700 mb-2">
-          Tu nombre: <span className="text-red-500">*</span>
+          Tu nombre y apellidos: <span className="text-red-500">*</span>
         </label>
         <input
           id="nombre"
