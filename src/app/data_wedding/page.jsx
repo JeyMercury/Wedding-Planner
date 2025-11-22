@@ -28,7 +28,7 @@ export default function AdminRsvps() {
 
   // 🔹 Calcular estadísticas
   const calcularEstadisticas = (data) => {
-    const totalAsistentes = data.length + data.filter(r => r.acompanante === "sí").length;
+    const totalAsistentes = data.filter(r => r.asistencia === "sí").length + data.filter(r => r.acompanante === "sí").length;
     const totalNinos = data.reduce((sum, r) => sum + (r.cantidad_ninos || 0), 0);
 
     const getMenuArray = (r) => {
