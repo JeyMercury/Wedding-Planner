@@ -49,7 +49,7 @@ export async function insertRsvp(form) {
           carneopescado: carneopescado || null,
           transporte: transporte || null,
           comentarios: comentarios || null,
-          cata: cata || null,
+          cata: cata || "no",
           created_at: new Date().toISOString()
         }
       ],{ onConflict: 'nombre' })

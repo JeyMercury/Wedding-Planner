@@ -44,7 +44,7 @@ export async function POST(req: Request) {
         carneopescado: body.carneopescado || null,
         transporte: body.transporte || null,
         comentarios: body.comentarios || null,
-        cata: body.cata,
+        cata: body.cata || "no",
       },
     ]);
 
